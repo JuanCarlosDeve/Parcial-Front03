@@ -23,9 +23,10 @@ a:hover {
 }
 
 body {
+  width: 100%;
+  height: 100vh;
   margin: 0;
-  display: flex;
-  place-items: center;
+  place-items: initial;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -67,16 +68,66 @@ button:focus-visible {
   }
 }
 
-.card{
+.card {
   width: 300px;
-  height: 150px;
-  background-color: #213547;
+  height: auto;
+  background-color: #ffffff;
   border-radius: 20px;
-
+  padding: 10px;
+  color: #242424;
 }
-.Container-Cards{
-  width: 100%;
+.Container-Cards {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.home {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  background-color: rgb(82, 80, 80);
+  padding: 20px;
+}
+
+.title {
+  font-size: xx-large;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pulse:hover,
+.pulse:focus {
+  -webkit-animation: pulse 1s;
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+.pulse {
+  --color: #ef6eae;
+  --hover: #ef8f6e;
+  background-color: #646cff;
+}
+
+.input-css {
+  height: 30px;
 }

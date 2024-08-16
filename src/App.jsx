@@ -1,19 +1,36 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 import Card from './Components/Card'
+import { Form } from './Components/Form'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [showForm, setShowForm] = useState(true);
+  const [studentInfo, setStudentInfo] = useState(null);
+
+  const handleFormSubmit = (info) => {
+    setStudentInfo(info);
+    setShowForm(false);
+  };
+
+  const handleReset = () => {
+    setStudentInfo(null);
+    setShowForm(true);
+  };
+
 
   return (
     <>
-      <h1>Carga de estudiantes</h1>
-      <form></form>
-      <div className='Container-Cards'>
-        <Card />
-      </div>
+      <section className='home'>
+        <h1 className='title'>Enseñanos cual es tu Pelicula favorita y te creamos una Card</h1>
+        {showForm ? (
+          <Form onSubmit={handleFormSubmit} />
+        ) : (
+          <div className='Container-Cards'>
+            <Card {...studentInfo} />
+            <button className='pulse' onClick={handleReset}>Volver al formulario</button>
+          </div>
+        )}
+      </section>
+
 
     </>
   )
